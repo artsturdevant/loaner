@@ -63,7 +63,7 @@ def import_yaml(yaml_data, user_email, wipe=False, randomize_shelving=False):
     DatastoreWipeError: if a datastore wipe is requested but BOOTSTRAP_ENABLED
         is False.
   """
-  yaml_data = yaml.load(yaml_data)
+  yaml_data = yaml.safe_load(yaml_data)
 
   if wipe:
     if not constants.BOOTSTRAP_ENABLED:
